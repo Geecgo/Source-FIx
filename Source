@@ -1,0 +1,26 @@
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("KILLA HUB", "Midnight")
+--Player
+local Toh = Window:NewTab("Toh")
+local TohSection = Toh:NewSection("Player")
+
+TohSection:NewButton("All Items", "Give all items to you But less Notic from anticheat", function()
+    for i, v in pairs (game:GetService("ReplicatedStorage").Gear:GetChildren()) do
+if v:IsA("Tool") then
+poop = v:Clone()
+poop.Parent = game:GetService("Players").LocalPlayer:FindFirstChild("Backpack")
+end
+end
+end)
+
+ local Player = Window:NewTab("Player")
+ local PlayerSection = Player:NewSection("Player")
+ 
+    PlayerSection:NewSlider("Walkspeed", "Changes the walkspeed", 250, 16, function(v)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+    end)
+ 
+    PlayerSection:NewSlider("Jumppower", "Changes the jumppower", 250, 50, function(v)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+    end)
